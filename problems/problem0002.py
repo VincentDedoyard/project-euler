@@ -31,6 +31,7 @@ def next_fibonacci():
     fibonacci_2 = fibonacci_3
     fibonacci_3 = next_fibonacci_number
 
+
 while fibonacci_3 <= 4000000:
     if fibonacci_3 % 2 == 0:
         even_fibonacci_numbers.append(fibonacci_3)
