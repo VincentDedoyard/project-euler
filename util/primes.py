@@ -69,6 +69,9 @@ class Primes():
         If the given number is prime, return the next prime
         """
 
+        if not self.primes:
+            self._next_prime()
+
         while number >= self.primes[-1]:
             self._next_prime()
 
