@@ -5,12 +5,20 @@ __author__ = 'Vincent Dedoyard'
 
 class Primes():
     def __init__(self):
-        self.primes = [2, 3]
+        self.primes = []
 
     def _next_prime(self):
         """
         Gets the next prime and inserts into an internal list
         """
+
+        if not self.primes:
+            self.primes.append(2)
+            return 2
+
+        if self.primes == [2]:
+            self.primes.append(3)
+            return 3
 
         potential_prime = self.primes[-1] + 2
 
@@ -72,3 +80,14 @@ class Primes():
         for prime in self.primes:
             if number < prime:
                 return prime
+
+    def yield_all_primes(self):
+        """
+        Generator to yield all primes
+        """
+
+        for prime in self.primes:
+            yield prime
+
+        while True:
+            yield self._next_prime()
