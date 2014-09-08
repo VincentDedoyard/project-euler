@@ -33,6 +33,9 @@ class Primes():
         Check whether a number is a prime
         """
 
+        if not self.primes:
+            self._next_prime()
+
         if potential_prime < 2:
             return False
 
@@ -78,7 +81,7 @@ class Primes():
         if self.is_prime(number):
             self._next_prime()
             i = self.primes.index(number)
-            return self.primes[i+1]
+            return self.primes[i + 1]
 
         for prime in self.primes:
             if number < prime:
@@ -94,3 +97,13 @@ class Primes():
 
         while True:
             yield self._next_prime()
+
+    def first_prime(self):
+        """
+        Return the first prime
+        """
+
+        if not self.primes:
+            self.primes = [2]
+
+        return self.primes[0]
