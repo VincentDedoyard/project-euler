@@ -9,14 +9,26 @@ from util import primes
 primes_obj = primes.Primes()
 
 
-def prime_factors(number):
+def factors(number):
     """
 
     :param number:
     :return:
     """
 
-    return [x for x in range(2, number) if primes_obj.is_prime(x)]
+    return [x for x in range(2, (number + 2) / 2) if number % x == 0]
+
+
+def factors2(number):
+    s = int(number ** 0.5)
+
+    number_factors = set()
+    number_factors.update([x for x in range(2, s + 1) if number % x == 0])
+
+    for n in set(number_factors):
+        number_factors.add(number / n)
+
+    return sorted(number_factors)
 
 
 def prime_factors(number):
@@ -37,3 +49,6 @@ def prime_factors(number):
             current_prime = primes_obj.prime_after(current_prime)
 
     return prime_factors_list
+
+
+print factors(28), factors2(28)
