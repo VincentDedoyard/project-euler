@@ -6,16 +6,17 @@ Factors
 
 from util import primes
 
-
 primes_obj = primes.Primes()
 
 
-def factors(number):
+def prime_factors(number):
     """
 
     :param number:
     :return:
     """
+
+    return [x for x in range(2, number) if primes_obj.is_prime(x)]
 
 
 def prime_factors(number):
