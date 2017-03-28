@@ -20,3 +20,4 @@ for potential_prime in range(3, 2000000, 2):
         primes_under_two_million_sum += potential_prime
 
 print primes_under_two_million_sum
+
